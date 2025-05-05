@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>I Love You Brother</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .heart {
+            color: red;
+            font-size: 80px;
+            animation: beat 1s infinite;
+        }
+
+        .message {
+            font-size: 30px;
+            margin-top: 20px;
+            color: #fff;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="heart">❤️</div>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        const text = "I LOVE YOU, BROTHER! 💖";
+        let i = 0;
+        const speed = 100;
+        const messageDiv = document.getElementById("message");
+
+        function typeEffect() {
+            if (i < text.length) {
+                messageDiv.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeEffect, speed);
+            }
+        }
+
+        window.onload = typeEffect;
+    </script>
+</body>
+</html>
